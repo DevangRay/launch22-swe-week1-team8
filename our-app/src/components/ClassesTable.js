@@ -34,6 +34,7 @@ const ClassesTable = (props) =>{
                         <TableCell align="center">
                         {entry.numStudents}
                         </TableCell>
+                        <TableCell><Button variant="contained">View</Button></TableCell>
                         </>
                     )
                 })}
