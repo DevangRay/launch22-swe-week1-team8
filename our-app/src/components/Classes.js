@@ -1,3 +1,6 @@
+import ClassesTable from "./ClassesTable";
+
+
 const Classes = (props) =>{
     return (<>
     <h1>Classes</h1>
