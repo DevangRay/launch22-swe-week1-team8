@@ -7,9 +7,11 @@ import Events from './Events';
 
 function Calendar() {
     const [value,setValue]=useState(null);
+
   const handleSelect=(e)=>{
     setValue(e)
   }
+
   return (
       <div>
             <div className="selector">
@@ -45,7 +47,7 @@ function Calendar() {
             <div className="display">
                 <p>Here's what's happening!</p>
                 {value && <h4>You selected {value}</h4>}
-                <Events/>
+                <Events month={value}/>
             </div>
       </div>
   );
