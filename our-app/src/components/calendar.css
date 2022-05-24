@@ -1,0 +1,35 @@
+.display {
+    text-align: center;
+    margin: 2%;
+    width: 60%;
+    border-style: double;
+    border-color: #282c34;
+    float:right;
+  }
+  
+  .selector {
+    margin: 2%;
+    text-align: center;
+    width: 30%;
+    border-style: dotted;
+    border-color:blueviolet;
+    float: left;
+  }
+
+  .monthName{
+    margin: 2%;
+    text-align: center;
+    width: 40%;
+    border-style: dotted;
+    border-color:blueviolet;
+    float: left;
+  }
+
+  .menu {
+    text-align: center;
+    margin: 2.48%;
+    width: 50%;
+    border-style: double;
+    border-color: #282c34;
+    float:right;
+  }
