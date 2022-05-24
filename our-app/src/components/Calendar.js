@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
+import Events from './Events';
 
 function Calendar() {
     const [value,setValue]=useState(null);
@@ -18,7 +19,7 @@ function Calendar() {
 
                 <div className='menu'>
                     <DropdownButton
-                        alignLeft
+                        // alignLeft
                         title="Month"
                         id="dropdown-menu-align-left"
                         onSelect={handleSelect}
@@ -44,6 +45,7 @@ function Calendar() {
             <div className="display">
                 <p>Here's what's happening!</p>
                 {value && <h4>You selected {value}</h4>}
+                {/* <Events/> */}
             </div>
       </div>
   );
