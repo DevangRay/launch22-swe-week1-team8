@@ -1,5 +1,8 @@
 const Classes = (props) =>{
-    return <></>
+    return (<>
+    <h1>Classes</h1>
+    <ClassesTable />
+    </>)
 }
 
 export default Classes
