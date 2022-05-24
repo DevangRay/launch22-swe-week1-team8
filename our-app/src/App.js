@@ -20,9 +20,6 @@ function App() {
         <Route path="/calendar" element = {<Calendar/>} />
         <Route path='/*' element={<Error/>}/>
       </Routes>
-
-      <p>This will be home of the nav bar</p>
-      <p> The home will be a separate component</p>
     </div>
   );
 }
