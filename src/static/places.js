@@ -1,3 +1,4 @@
+//test
 const places = [
   {
     title: 'Class Pages',
