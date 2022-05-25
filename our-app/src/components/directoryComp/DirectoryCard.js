@@ -4,6 +4,14 @@ import { CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import './directory.css';
 
 function DirectoryCard(props) {
+    var role;
+    if(props.role === 'teacher' || props.role === "Teacher") {
+        role = "Teacher";
+    }
+    else{
+        role = "Student";
+    }
+
     return(
         <div>
             {/* <p>{last}, {first}</p>. */}
@@ -19,7 +27,7 @@ function DirectoryCard(props) {
                     {/* <Typography variant="body2">{props.author}</Typography> */}
                     <br></br>
                     <Typography variant="body1" color = "text.secondary">
-                        {props.role}
+                        {role}
                     </Typography>
                 </CardContent>
                 <CardActions>
