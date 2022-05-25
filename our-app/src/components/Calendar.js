@@ -8,21 +8,40 @@ import Events from './Events';
 function Calendar() {
     const [value,setValue]=useState(null);
 
-  const handleSelect=(e)=>{
-    setValue(e)
-  }
+    const handleSelect=(e)=>{
+        setValue(e)
+    }
 
-  return (
+    function toMonth(id) {
+        switch(id) {
+            case "1": return "January"; 
+            case "2": return "February"; 
+            case "3": return "March"; 
+            case "4": return "April"; 
+            case "5": return "May"; 
+            case "6": return "June";
+            case "7": return "July";
+            case "8": return "August";
+            case "9": return "September";
+            case "10": return "October";
+            case "11": return "November";
+            case "12": return "December";
+            default: return "No month selected";
+        }
+    }
+    const id = toMonth(value);
+
+    return (
       <div>
             <div className="selector">
                 <div className="monthName">
-                    <p>Select the Month:</p>
+                    <h5>Select the Month:</h5>
                 </div>
 
                 <div className='menu'>
                     <DropdownButton
                         // alignLeft
-                        title="Month"
+                        title={id}
                         id="dropdown-menu-align-left"
                         onSelect={handleSelect}
                         >

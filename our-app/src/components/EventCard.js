@@ -7,11 +7,11 @@ function EventCard(props) {
     return (
         <div>
             <Card raised={true} className="article" >
-                {/* <CardMedia 
+                <CardMedia 
                     component = "img"
-                    image = {newsSrc}
-                    alt = {newsAlt}
-                /> */}
+                    image = {props.src}
+                    // alt = {newsAlt}
+                />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {props.title}

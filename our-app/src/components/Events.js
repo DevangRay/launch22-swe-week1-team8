@@ -86,7 +86,7 @@ function Events(props) {
                     <p>{translateToDate(event.Date)}</p>
                     <p>{event.Location}</p>
                     <p>{event.Description}</p> */}
-                    <EventCard title={event.Title} date={translateToDate(event.Date)} location={event.Location} description={event.Description}/>
+                    <EventCard title={event.Title} date={translateToDate(event.Date)} location={event.Location} description={event.Description} src={event.Link}/>
                 </div>
             ))}
         </div>
