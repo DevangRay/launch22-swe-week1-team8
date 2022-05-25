@@ -3,12 +3,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Classes from './components/classesComp/Classes';
 import Home from './components/Home';
 import Error from './components/Error';
-<<<<<<< HEAD
 import Calendar from './components/calenderComp/Calendar';
 import IndividualClass from './components/classesComp/IndividualClass';
-=======
-import Calendar from './components/calenderComp/Calendar';
->>>>>>> main
 
 function App() {
   return (
