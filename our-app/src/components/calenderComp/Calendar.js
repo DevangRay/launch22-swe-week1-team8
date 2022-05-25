@@ -35,6 +35,7 @@ function Calendar() {
 
     return (
       <div>
+            <h1>School Event Calender</h1>
             <div className="selector">
                 <div className="monthName">
                         <h5>Select the Month:</h5>

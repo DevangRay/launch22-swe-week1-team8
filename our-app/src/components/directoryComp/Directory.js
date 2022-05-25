@@ -11,10 +11,10 @@ function Directory() {
     const [isLoading, setIsLoading] = useState(true);
     const [role, setRole] = useState("");
     const collectionName = "directory";
-    const date = new Date();
     const array = [];
     const directoryRef = collection(db, collectionName);
     const q = query(directoryRef, where("role", "==", role));
+    var display = false;
 
     const safeAsyncFunction = async () => {
         try {
@@ -38,26 +38,35 @@ function Directory() {
     }
 
     function roleToStudent() {
-      setRole("student");
+      setRole("Student");
     }
 
     function roleToTeacher() {
-      setRole("teacher");
+      setRole("Teacher");
+    }
+
+    if (array.length > 0) {
+      display = true;
+    }
+    else{
+      display = false;
     }
 
     return (
       <div>
-        <Button onClick={roleToStudent}>Click here for Student</Button>
-        <Button onClick={roleToTeacher}>"Click here for Teacher"</Button>
-        {!isLoading && <div>
-          <p>{role}</p>
+        <h1>Thomas Jefferson Elementary School Directory</h1>
+        <br></br>
+        <Button onClick={roleToStudent}> Click here for Student </Button>
+        <Button onClick={roleToTeacher}> Click here for Teacher </Button>
+        {display && <div>
+          <h2>{role}s</h2>
         </div>}
         <Grid container spacing={0.5}>
         {array.map( (name) => (
             <Grid item xs={4}>
-                <div key = {name.first}>
+                {/* <div key = {name.first}> */}
                     <DirectoryCard first={name.first} last={name.last} src={name.profile} role={name.role}/>
-                </div>
+                {/* </div> */}
             </Grid>
             ))}
         </Grid>
