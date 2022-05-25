@@ -1,17 +1,14 @@
 import db from "../../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from 'react';
-import Button from '@mui/material/Button';
+import { ButtonGroup, Button, Grid } from '@mui/material';
 import DirectoryCard from "./DirectoryCard";
-import Grid from '@mui/material/Grid';
 import './directory.css';
 
 function Directory() {
     const [data, setData] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [role, setRole] = useState(["", ""]);
-    const teacherRole = ["teacher", "Teacher"];
-    const studentRole = ["student", "Student"];
     var roleTitle;
     const collectionName = "directory";
     const array = [];
@@ -41,11 +38,11 @@ function Directory() {
     }
 
     function roleToStudent() {
-      setRole(studentRole);
+      setRole(["student", "Student"]);
     }
 
     function roleToTeacher() {
-      setRole(teacherRole);
+      setRole(["teacher", "Teacher"]);
     }
 
     if (array.length > 0) {
@@ -65,8 +62,11 @@ function Directory() {
       <div>
         <h1>Thomas Jefferson Elementary School Directory</h1>
         <br></br>
-        <Button onClick={roleToStudent}> Click here for Student </Button>
-        <Button onClick={roleToTeacher}> Click here for Teacher </Button>
+        <ButtonGroup variant="text" aria-label="text button group">
+          <Button onClick={roleToStudent} > View All Students </Button>
+          <Button onClick={roleToTeacher} > View All Teachers </Button>
+        </ButtonGroup>
+        
         {display && <div>
           <h2>{roleTitle}s</h2>
         </div>}

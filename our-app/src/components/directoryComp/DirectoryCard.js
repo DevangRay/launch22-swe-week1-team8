@@ -4,12 +4,14 @@ import { CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import './directory.css';
 
 function DirectoryCard(props) {
-    var role;
+    var role, linkText;
     if(props.role === 'teacher' || props.role === "Teacher") {
         role = "Teacher";
+        linkText = "Contact";
     }
     else{
         role = "Student";
+        linkText = "View Class";
     }
 
     return(
@@ -31,7 +33,7 @@ function DirectoryCard(props) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" target="_blank">Read More</Button>
+                    <Button size="small" target="_blank">{linkText}</Button>
                 </CardActions>
             </Card>
         </div>
