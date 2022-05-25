@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Events from './Events';
+// import { CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+// import Card from '@mui/material/Card';
 
 function Calendar() {
     const [value,setValue]=useState(null);
@@ -35,12 +37,11 @@ function Calendar() {
       <div>
             <div className="selector">
                 <div className="monthName">
-                    <h5>Select the Month:</h5>
+                        <h5>Select the Month:</h5>
                 </div>
-
+                
                 <div className='menu'>
                     <DropdownButton
-                        // alignLeft
                         title={id}
                         id="dropdown-menu-align-left"
                         onSelect={handleSelect}
