@@ -17,12 +17,16 @@
   }
 
   .monthName{
-    margin: 2%;
     text-align: center;
+    /* position: relative; */
     width: 40%;
     border-style: dotted;
     border-color:blueviolet;
     float: left;
+  }
+
+  .monthName h5{
+    padding: 50px 0 50px;
   }
 
   .menu {
@@ -33,3 +37,8 @@
     border-color: #282c34;
     float:right;
   }
+
+  .article{
+    padding: 20px;
+    margin: 0px;
+}
