@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Classes from './components/classesComp/Classes';
 import Home from './components/Home';
 import Error from './components/Error';
-import Calendar from './components/Calendar';
+import Calendar from './components/calenderComp/Calendar';
 
 function App() {
   return (

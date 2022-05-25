@@ -3,7 +3,7 @@ import './calendar.css';
 // import Button from '@mui/material/Button';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import { CardActions, CardContent, CardMedia, Typography, Divider, Chip } from '@mui/material';
+import { CardContent, CardMedia, Typography, Divider} from '@mui/material'; 
 
 function EventCard(props) {
     return (
