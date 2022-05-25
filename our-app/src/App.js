@@ -1,9 +1,10 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import Classes from './components/classesComp/Classes';
-import Home from './components/Home';
-import Error from './components/Error';
+import Home from './components/routerComp/Home';
+import Error from './components/routerComp/Error';
 import Calendar from './components/calenderComp/Calendar';
+import Directory from './components/directoryComp/Directory';
 
 function App() {
   return (
@@ -12,12 +13,14 @@ function App() {
         <Link to="/"> Home </Link>
         <Link to="/classes"> Classes </Link>
         <Link to="/calendar"> Calendar </Link>
+        <Link to="/directory"> Directory </Link>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/classes" element={<Classes/>} exact/>
         <Route path="/calendar" element = {<Calendar/>} />
+        <Route path="/directory" element = {<Directory/>} />
         <Route path='/*' element={<Error/>}/>
       </Routes>
     </div>
