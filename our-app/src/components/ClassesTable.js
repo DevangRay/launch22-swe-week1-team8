@@ -11,6 +11,7 @@ import { Button } from "@mui/material";
 const ClassesTable = (props) =>{
     const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
     return(<>
+    <div class="table-container">
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="classes table">
             <TableHead>
@@ -41,6 +42,7 @@ const ClassesTable = (props) =>{
             </TableBody>
         </Table>
     </TableContainer>
+    </div>
     </>)
 }
 
