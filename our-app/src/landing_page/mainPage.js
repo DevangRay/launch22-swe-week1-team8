@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function mainPage() {
+function MainPage() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -25,4 +25,4 @@ function mainPage() {
   );
 }
 
-export default mainPage;
+export default MainPage;
