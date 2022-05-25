@@ -1,0 +1,74 @@
+ .display {
+    text-align: center;
+    margin: 2%;
+    width: 60%;
+    /* border-style: double;
+    border-color: #282c34; */
+    float:right;
+  }
+  
+  .selector {
+    margin: 2%;
+    text-align: center;
+    width: 30%;
+    /* border-style: dotted;
+    border-color:blueviolet; */
+    float: left;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    /* On mouse-over, add a deeper shadow */
+  }
+
+  .selector:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .monthName{
+    text-align: center;
+    /* position: relative; */
+    width: 40%;
+    /* border-style: dotted;
+    border-color:blueviolet; */
+    float: left;
+  }
+
+  .monthName h5{
+    padding: 50px 0 50px;
+  }
+
+  .menu {
+    text-align: center;
+    margin-top: 15%;
+    margin-right: 5%;
+    width: 50%;
+    /* border-style: double;
+    border-color: #282c34; */
+    float:right;
+  }
+
+  .card{
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.title{
+  text-align: center;
+  width: 40%;
+  /* border-style: dotted;
+  border-color:blueviolet; */
+  float: left;
+  padding-bottom: 2%;
+}
+
+.cardBody {
+  padding-bottom: 6%;
+}
+
+.loading{
+  padding: 20%;
+}
