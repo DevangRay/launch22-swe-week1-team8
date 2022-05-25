@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 
 const ClassesTable = (props) =>{
     const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
@@ -52,7 +53,9 @@ const ClassesTable = (props) =>{
                         <TableCell align="center">
                         {entry.numStudents}
                         </TableCell>
-                        <TableCell><Button variant="contained">View</Button></TableCell>
+                        <TableCell><Button variant="contained">
+                            <Link to={`/classes/${entry.teacher}`} style={{color:'white'}}>View</Link>
+                        </Button></TableCell>
                         </TableRow>
                         </>
                     )
