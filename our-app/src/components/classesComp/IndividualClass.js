@@ -9,10 +9,11 @@ const IndividualClass = (props) =>{
 
     const fetchClassData = () =>{
         const classesRef = collection(db, "classes");
-        const q = query(classesRef, where('teacher', '==', params.teacherName.toString()));
+        const q = query(classesRef, where('teacher', '==', "Smith"));
         getDocs(q)
-        .then((querySnapshot) => updateClassData(querySnapshot.data())) //only return first teacher if multiple results w/ name\
-        .then(()=>console.log(Object.assign({}, classData)));
+        .then((querySnapshot) => {
+            return updateClassData(querySnapshot.docs[0].data());
+        });
     }
 
     useEffect(()=>{
@@ -22,6 +23,8 @@ const IndividualClass = (props) =>{
     return (
     <>
     <h1>{params.teacherName}'s Class</h1>
+    <h3>Number of Students: </h3>
+    <h5>{classData ? classData.numberstudents : "loading"}</h5>
     </>
     )
 }
