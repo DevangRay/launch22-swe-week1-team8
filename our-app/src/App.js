@@ -1,36 +1,14 @@
-import React from 'react';
-import Header from './landing_page/landing_page_components/Header';
-import Functions from './landing_page/landing_page_components/Functions';
-import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline } from '@material-ui/core';
-
 import { Routes, Route, Link } from 'react-router-dom';
-import Classes from './components/classesComp/Classes';
-import Home from './components/Home';
-import Error from './components/Error';
-import Calendar from './components/calenderComp/Calendar';
-import IndividualClass from './components/classesComp/IndividualClass';
+import Classes from '../src/components/classesComp/Classes'
+import Home from '../src/components/Home';
+import Error from '../src/components/Error';
+import Calendar from '../src/components/calenderComp/Calendar';
+import IndividualClass from '../src/components/classesComp/IndividualClass';
 
-//insert home page background here
-const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: '100vh',
-    backgroundImage: `url(${process.env.PUBLIC_URL + ''})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-  },
-}));
 
 function App() {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Header />
-      <Functions />
-    </div>
 
-    /*
     <div className="App">
       <nav>
         <Link to="/"> Home </Link>
@@ -47,8 +25,6 @@ function App() {
         <Route path='/*' element={<Error/>}/>
       </Routes>
     </div>
-  );
-  */
   );
 }
 
