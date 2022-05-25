@@ -1,4 +1,4 @@
-import './calendar.css'
+import Calendar from './components/calenderComp/Calendar';
 import React,{useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
