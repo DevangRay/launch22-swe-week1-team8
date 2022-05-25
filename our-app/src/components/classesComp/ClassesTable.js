@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 const ClassesTable = (props) =>{
-    const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
+    //const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
     const [classesData, updateClassesData] = useState([]);
 
     const fetchClassesData = () =>{
@@ -43,6 +43,7 @@ const ClassesTable = (props) =>{
                 {classesData !== [] && classesData.map((entry)=>{
                     return(
                         <>
+                        {entry.numStudents ?
                         <TableRow
                         key={entry.teacher}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -57,7 +58,11 @@ const ClassesTable = (props) =>{
                             <Link to={`/classes/${entry.teacher}`} style={{color:'white'}}>View</Link>
                         </Button></TableCell>
                         </TableRow>
+                        : <></>
+                        }
                         </>
+                        
+                        
                     )
                 })}
             </TableBody>
