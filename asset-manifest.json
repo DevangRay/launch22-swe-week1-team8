@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/launch22-swe-week1-team8/static/css/main.857fe92f.css",
+    "main.js": "/launch22-swe-week1-team8/static/js/main.6403a358.js",
+    "static/js/787.b7ed7332.chunk.js": "/launch22-swe-week1-team8/static/js/787.b7ed7332.chunk.js",
+    "index.html": "/launch22-swe-week1-team8/index.html",
+    "main.857fe92f.css.map": "/launch22-swe-week1-team8/static/css/main.857fe92f.css.map",
+    "main.6403a358.js.map": "/launch22-swe-week1-team8/static/js/main.6403a358.js.map",
+    "787.b7ed7332.chunk.js.map": "/launch22-swe-week1-team8/static/js/787.b7ed7332.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.857fe92f.css",
+    "static/js/main.6403a358.js"
+  ]
+}
