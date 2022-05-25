@@ -65,8 +65,7 @@ function Calendar() {
             </div>
             
             <div className="display">
-                {/* <p>Here's what's happening!</p>
-                {value && <h4>You selected {value}</h4>} */}
+                {value && <h2>Events in {id}</h2>}
                 <Events month={value}/>
             </div>
       </div>
