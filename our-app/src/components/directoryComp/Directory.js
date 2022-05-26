@@ -18,7 +18,7 @@ function Directory() {
 
     const safeAsyncFunction = async () => {
         try {
-          const allDocs = await getDocs(q)   //collection(db, collectionName)
+          const allDocs = await getDocs(q)
           setData(allDocs);
           setIsLoading(false);
         } catch (err) {
@@ -27,12 +27,14 @@ function Directory() {
       };
 
       useEffect( () => {
+          console.log("load")
           setIsLoading(true);
           safeAsyncFunction();
       }, [role])
 
       useEffect( () => {
         scroll();
+        console.log("scroll")
       }, [array])
 
       if(!isLoading) {
@@ -51,7 +53,6 @@ function Directory() {
 
     const scroll = () => {
       const section = document.querySelector( '#profiles' );
-      console.log(section);
       section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
     };
 
@@ -71,23 +72,19 @@ function Directory() {
     return (
       <div>
         <h1>Thomas Jefferson Elementary School Directory</h1>
-        {/* <br></br> */}
         <ButtonGroup variant="text" aria-label="text button group" className="directoryButton">
           <Button onClick={roleToStudent} > View All Students </Button>
           <Button onClick={roleToTeacher} > View All Teachers </Button>
         </ButtonGroup>
         
         {display && <div>
-          <h2>{roleTitle}s</h2>
-          {/* <Button onClick={getOffset}>Click to get offset of profiles</Button> */}
+          <h2 onLoad={scroll}>{roleTitle}s</h2>
         </div>}
         <div id="profiles">
           <Grid container spacing={0.5}>
           {array.map( (name) => (
               <Grid item xl={2} lg={3} key={name.first + name.last}>
-                  {/* <div key = {name.first}> */}
-                      <DirectoryCard first={name.first} last={name.last} src={name.profile} role={roleTitle}/>
-                  {/* </div> */}
+                    <DirectoryCard first={name.first} last={name.last} src={name.profile} role={roleTitle}/>
               </Grid>
               ))}
           </Grid>
