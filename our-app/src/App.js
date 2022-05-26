@@ -5,6 +5,7 @@ import Error from './components/routerComp/Error';
 import Calendar from './components/calenderComp/Calendar';
 import Directory from './components/directoryComp/Directory';
 import IndividualClass from './components/classesComp/IndividualClass';
+import AddClass from './components/classesComp/AddClass';
 import ChangeGrade from './components/classesComp/ChangeGrade';
 import MainPage from './landing_page/MainPage';
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<MainPage/>}/>
         <Route path="/classes" element={<Classes/>} />
         <Route path="/classes/:teacherName" element={<IndividualClass />} />
+        <Route path="/add-class" element={<AddClass/>}/>
         <Route path="/student/:studentTeacher/:studentName/:grade" element={<ChangeGrade/>} />
         <Route path="/calendar" element = {<Calendar/>} />
         <Route path="/directory" element = {<Directory/>} />
