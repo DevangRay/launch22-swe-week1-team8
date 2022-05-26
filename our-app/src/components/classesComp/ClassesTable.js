@@ -1,5 +1,5 @@
 import db from "../../firebase"
-import {collection, getDocs} from "firebase/firestore";
+import {collection, getDocs, deleteDoc, doc} from "firebase/firestore";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -14,19 +14,51 @@ import { Outlet, Link } from "react-router-dom";
 const ClassesTable = (props) =>{
     //const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
     const [classesData, updateClassesData] = useState([]);
+    const [goDelete, setGoDelete] = useState(null);
+    const collectionName = "classes";
 
     const fetchClassesData = () =>{
         let classesArray = [];
         getDocs(collection(db, "classes"))
-        .then((allDocs) => {allDocs.forEach((doc) => 
-        classesArray.push({teacher : doc.data().teacher, "numStudents": doc.data()["numberstudents"]})
+        .then((allDocs) => {
+            console.log("fetching");
+            allDocs.forEach((doc) => {
+            // console.log("docID:", doc._key.path.segments[6]);
+            classesArray.push({teacher : doc.data().teacher, "numStudents": doc.data()["numberstudents"], "id":doc._key.path.segments[6]}) }
         )})
         .then(()=>updateClassesData([...classesArray]));
     }
 
+    const deleteClass = async () => {
+        try {
+          await deleteDoc(doc(db, collectionName, goDelete));
+          console.log("deleted");
+          setGoDelete(null);
+        } catch (err) {
+          console.log("async-error", err);
+        }
+      };
+
     useEffect(()=>{
-        fetchClassesData();
-    }, [])
+        if (goDelete === null) {
+            fetchClassesData();
+        }
+    }, [goDelete])
+
+    useEffect( () => {
+        if (goDelete !== null){
+            deleteClass();
+        }
+    }, [goDelete])
+
+    function setDelete(id) {
+        classesData.forEach( (name) => {
+            if (name.id === id) {
+                console.log(name.teacher);
+                setGoDelete(id);
+            }
+        })
+    }
 
     return(<>
     <div className="table-container">
@@ -56,6 +88,9 @@ const ClassesTable = (props) =>{
                         </TableCell>
                         <TableCell><Button variant="contained">
                             <Link to={`/classes/${entry.teacher}`} style={{color:'white'}}>View</Link>
+                        </Button></TableCell>
+                        <TableCell><Button variant="contained" onClick={() => {setDelete(entry.id)}}>
+                            Delete
                         </Button></TableCell>
                         </TableRow>
                         : <></>
