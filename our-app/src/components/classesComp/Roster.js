@@ -41,6 +41,10 @@ const Roster = (props) =>{
     }
 
     useEffect(()=>{
+        calculateAverage();
+    }, [roster])
+
+    useEffect(()=>{
         fetchRoster();
         calculateAverage();
         
@@ -48,10 +52,12 @@ const Roster = (props) =>{
     
     return(<>
         <div className="table-container">
+        <div  style={{display: 'inline-block', margin:'auto'}}>
         <Card style={{maxWidth: 300}}><CardContent>
             <h4>Average Grade</h4>
             <h3>{average}</h3>
             </CardContent></Card>
+        </div>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="roster">
                 <TableHead>
@@ -77,7 +83,9 @@ const Roster = (props) =>{
                             {entry.grade}
                             </TableCell>
                             <TableCell><Button variant="contained">
+                                <Link to={"../student/"+entry.studentname}>
                                 Change Grade
+                                </Link>
                             </Button></TableCell>
                             </TableRow>
                             : <></>
