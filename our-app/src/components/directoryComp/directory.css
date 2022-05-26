@@ -23,3 +23,31 @@
   body{
       background-color: #fafafa;
   }
+
+  .addStudentForm{
+    margin: auto;
+    max-width:fit-content;
+    padding: 25px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+}
+
+.addStudentForm:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .submitButton {
+    margin-top: 5%;
+    margin-left: 8%;
+    width: 100%;
+    /* outline-style: dashed;
+    outline-color: black; */
+}
+
+.addStudentButton {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
