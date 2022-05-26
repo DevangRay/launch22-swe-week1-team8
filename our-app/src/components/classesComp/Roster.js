@@ -9,11 +9,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button } from "@mui/material";
+import { Button, CardContent } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
+import { Card } from "@mui/material";
 
 const Roster = (props) =>{
     const [roster, updateRoster] = useState([]);
+    const [average, updateAverage] = useState(0);
 
     const fetchRoster = () =>{
         const classesRef = collection(db, "classes");
@@ -25,18 +27,31 @@ const Roster = (props) =>{
                 console.log(entry.data());
             })
         })
-        .then(()=>{
-            //slice list in half, remove if not run in strict mode
-            updateRoster((roster)=>roster.slice(0, Math.ceil(roster.length/2)));
+    }
+
+    const calculateAverage = () =>{
+        let val = 0;
+        let numElements = 0;
+        roster.forEach((entry)=>{
+            val += parseFloat(entry.grade);
+            numElements++;
         })
+        val = val/numElements;
+        updateAverage(val);
     }
 
     useEffect(()=>{
         fetchRoster();
+        calculateAverage();
+        
     }, [])
     
     return(<>
         <div className="table-container">
+        <Card style={{maxWidth: 300}}><CardContent>
+            <h4>Average Grade</h4>
+            <h3>{average}</h3>
+            </CardContent></Card>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="roster">
                 <TableHead>
@@ -47,7 +62,7 @@ const Roster = (props) =>{
                 </TableRow>
                 </TableHead>
                 <TableBody>
-                    {roster && roster.map((entry)=>{
+                    {roster && roster.slice(0, roster.length/2).map((entry)=>{
                         return(
                             <>
                             {entry.studentname ?
@@ -68,8 +83,6 @@ const Roster = (props) =>{
                             : <></>
                             }
                             </>
-                            
-                            
                         )
                     })}
                 </TableBody>
