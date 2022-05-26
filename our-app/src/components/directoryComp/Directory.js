@@ -31,6 +31,10 @@ function Directory() {
           safeAsyncFunction();
       }, [role])
 
+      useEffect( () => {
+        scroll();
+      }, [array])
+
       if(!isLoading) {
         data.forEach((doc) => {
           array.push(doc.data());
@@ -44,6 +48,12 @@ function Directory() {
     function roleToTeacher() {
       setRole(["teacher", "Teacher"]);
     }
+
+    const scroll = () => {
+      const section = document.querySelector( '#profiles' );
+      console.log(section);
+      section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+    };
 
     if (array.length > 0) {
       display = true;
@@ -61,24 +71,27 @@ function Directory() {
     return (
       <div>
         <h1>Thomas Jefferson Elementary School Directory</h1>
-        <br></br>
-        <ButtonGroup variant="text" aria-label="text button group">
+        {/* <br></br> */}
+        <ButtonGroup variant="text" aria-label="text button group" className="directoryButton">
           <Button onClick={roleToStudent} > View All Students </Button>
           <Button onClick={roleToTeacher} > View All Teachers </Button>
         </ButtonGroup>
         
         {display && <div>
           <h2>{roleTitle}s</h2>
+          {/* <Button onClick={getOffset}>Click to get offset of profiles</Button> */}
         </div>}
-        <Grid container spacing={0.5}>
-        {array.map( (name) => (
-            <Grid item xl={2} lg={3}>
-                {/* <div key = {name.first}> */}
-                    <DirectoryCard first={name.first} last={name.last} src={name.profile} role={roleTitle}/>
-                {/* </div> */}
-            </Grid>
-            ))}
-        </Grid>
+        <div id="profiles">
+          <Grid container spacing={0.5}>
+          {array.map( (name) => (
+              <Grid item xl={2} lg={3} key={name.first + name.last}>
+                  {/* <div key = {name.first}> */}
+                      <DirectoryCard first={name.first} last={name.last} src={name.profile} role={roleTitle}/>
+                  {/* </div> */}
+              </Grid>
+              ))}
+          </Grid>
+        </div>
       </div>
     );
 }
