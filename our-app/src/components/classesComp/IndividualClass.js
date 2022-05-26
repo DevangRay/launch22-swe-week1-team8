@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Button } from "@mui/material";
 import db from "../../firebase"
 import Roster from "./Roster"
 
@@ -34,7 +34,6 @@ const IndividualClass = (props) =>{
             {classData !== [] && <h5>{classData.numberstudents}</h5>}
         </CardContent>
     </Card>
-   
     </div>
     <Roster teachername={params.teacherName}/>
     
