@@ -6,7 +6,6 @@ import Calendar from './components/calenderComp/Calendar';
 import Directory from './components/directoryComp/Directory';
 import IndividualClass from './components/classesComp/IndividualClass';
 import AddClass from './components/classesComp/AddClass';
-import RemoveClass from './components/classesComp/RemoveClass';
 import ChangeGrade from './components/classesComp/ChangeGrade';
 import MainPage from './landing_page/MainPage';
 
@@ -20,7 +19,6 @@ function App() {
         <Route path="/classes/:teacherName" element={<IndividualClass />} />
         <Route path="/student/:studentName" element={<ChangeGrade/>} />
         <Route path="/add-class" element={<AddClass/>}/>
-        <Route path="/remove-class" element={<RemoveClass/>} />
         <Route path="/calendar" element = {<Calendar/>} />
         <Route path="/directory" element = {<Directory/>} />
         <Route path='/*' element={<Error/>}/>

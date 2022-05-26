@@ -8,13 +8,9 @@ const EditClasses = (props) =>{
     function goToAddClass() {
         navigate("/add-class")
     }
-    // function goToRemoveClass() {
-    //     navigate('/remove-class');
-    // }
 
     return(<>
     <Button variant="outlined" onClick={goToAddClass}> Add Classes </Button>
-    {/* <Button variant="outlined" onClick={goToRemoveClass}> Remove Classes </Button> */}
     <ClassesTable />
     </>)
 }
