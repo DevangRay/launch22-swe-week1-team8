@@ -25,10 +25,6 @@ const Roster = (props) =>{
                 console.log(entry.data());
             })
         })
-        .then(()=>{
-            //slice list in half, remove if not run in strict mode
-            updateRoster((roster)=>roster.slice(0, Math.ceil(roster.length/2)));
-        })
     }
 
     useEffect(()=>{
@@ -47,7 +43,7 @@ const Roster = (props) =>{
                 </TableRow>
                 </TableHead>
                 <TableBody>
-                    {roster && roster.map((entry)=>{
+                    {roster && roster.slice(0, Math.floor(roster.length/2)).map((entry)=>{
                         return(
                             <>
                             {entry.studentname ?
