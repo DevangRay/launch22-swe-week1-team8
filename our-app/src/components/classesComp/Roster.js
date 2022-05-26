@@ -41,6 +41,10 @@ const Roster = (props) =>{
     }
 
     useEffect(()=>{
+        calculateAverage();
+    }, [roster])
+
+    useEffect(()=>{
         fetchRoster();
         calculateAverage();
         
