@@ -83,7 +83,7 @@ const Roster = (props) =>{
                             {entry.grade}
                             </TableCell>
                             <TableCell><Button variant="contained">
-                                <Link to={"../student/"+entry.studentname}>
+                                <Link to={"../student/"+entry.studentname+"/"+entry.grade}>
                                 Change Grade
                                 </Link>
                             </Button></TableCell>

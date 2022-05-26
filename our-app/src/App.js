@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/classes" element={<Classes/>} />
         <Route path="/classes/:teacherName" element={<IndividualClass />} />
-        <Route path="/student/:studentName" element={<ChangeGrade/>} />
+        <Route path="/student/:studentName/:grade" element={<ChangeGrade/>} />
         <Route path="/calendar" element = {<Calendar/>} />
         <Route path="/directory" element = {<Directory/>} />
         <Route path='/*' element={<Error/>}/>
