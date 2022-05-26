@@ -52,10 +52,12 @@ const Roster = (props) =>{
     
     return(<>
         <div className="table-container">
+        <div  style={{display: 'inline-block', margin:'auto'}}>
         <Card style={{maxWidth: 300}}><CardContent>
             <h4>Average Grade</h4>
             <h3>{average}</h3>
             </CardContent></Card>
+        </div>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="roster">
                 <TableHead>
