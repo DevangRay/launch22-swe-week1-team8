@@ -12,7 +12,6 @@ import MainPage from './landing_page/MainPage';
 import AddStudent from './components/directoryComp/AddStudent';
 import AddTeacher from './components/directoryComp/AddTeacher';
 
-
 function App() {
   const style = {
     backgroundColor: "#fafafa",
@@ -34,9 +33,9 @@ function App() {
           <Route path="/" element={<MainPage/>}/>
           <Route path="/classes" element={<Classes/>} />
           <Route path="/classes/:teacherName" element={<IndividualClass />} />
-          <Route path="/student/:studentName" element={<ChangeGrade/>} />
-          <Route path="/add-class" element={<AddClass/>}/>
+          <Route path="/classes/:teacherName/addstudent" element={<AddStudent />} />
           <Route path="/student/:studentTeacher/:studentName/:grade" element={<ChangeGrade/>} />
+          <Route path="/add-class" element={<AddClass/>}/>
           <Route path="/calendar" element = {<Calendar/>} />
           <Route path="/directory" element = {<Directory/>} />
           <Route path="/add-student" element={<AddStudent/>} />
@@ -55,6 +54,7 @@ function App() {
           </ButtonGroup>
         </nav>
       </div>
+
     </div>
   );
 }

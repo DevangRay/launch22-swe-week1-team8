@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { Input, Button } from "@mui/material";
 import { useRef, useState } from "react";
 import db from "../../firebase";
@@ -34,6 +34,8 @@ const ChangeGrade = (props) =>{
         <h1>Change {params.studentName}'s Grade</h1>
         <Input defaultValue={grade} variant="" inputRef={gradeRef}></Input>
         <Button variant="contained" onClick={changeGrade}>Update</Button>
+        <br></br>
+        <Button variant="outlined" style={{marginTop:"5px"}}><Link to={"../classes/"+params.studentTeacher}>Back</Link></Button>
     </>)
 }
 
