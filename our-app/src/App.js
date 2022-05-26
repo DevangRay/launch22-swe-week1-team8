@@ -6,6 +6,7 @@ import Error from './components/routerComp/Error';
 import Calendar from './components/calenderComp/Calendar';
 import Directory from './components/directoryComp/Directory';
 import IndividualClass from './components/classesComp/IndividualClass';
+import ChangeGrade from './components/classesComp/ChangeGrade';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/classes" element={<Classes/>} />
         <Route path="/classes/:teacherName" element={<IndividualClass />} />
+        <Route path="/student/:studentName" element={<ChangeGrade/>} />
         <Route path="/calendar" element = {<Calendar/>} />
         <Route path="/directory" element = {<Directory/>} />
         <Route path='/*' element={<Error/>}/>
