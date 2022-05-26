@@ -15,6 +15,7 @@ import { Card } from "@mui/material";
 
 const Roster = (props) =>{
     const [roster, updateRoster] = useState([]);
+    const [average, updateAverage] = useState(0);
 
     const fetchRoster = () =>{
         const classesRef = collection(db, "classes");
@@ -28,13 +29,29 @@ const Roster = (props) =>{
         })
     }
 
+    const calculateAverage = () =>{
+        let val = 0;
+        let numElements = 0;
+        roster.forEach((entry)=>{
+            val += parseFloat(entry.grade);
+            numElements++;
+        })
+        val = val/numElements;
+        updateAverage(val);
+    }
+
     useEffect(()=>{
         fetchRoster();
+        calculateAverage();
+        
     }, [])
     
     return(<>
         <div className="table-container">
-        <Card><CardContent><h4>Average Grade</h4></CardContent></Card>
+        <Card style={{maxWidth: 300}}><CardContent>
+            <h4>Average Grade</h4>
+            <h3>{average}</h3>
+            </CardContent></Card>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="roster">
                 <TableHead>
@@ -45,7 +62,7 @@ const Roster = (props) =>{
                 </TableRow>
                 </TableHead>
                 <TableBody>
-                    {roster && roster.slice(0, Math.floor(roster.length/2)).map((entry)=>{
+                    {roster && roster.slice(0, roster.length/2).map((entry)=>{
                         return(
                             <>
                             {entry.studentname ?
