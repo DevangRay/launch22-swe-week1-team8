@@ -8,6 +8,7 @@ import IndividualClass from './components/classesComp/IndividualClass';
 import AddClass from './components/classesComp/AddClass';
 import ChangeGrade from './components/classesComp/ChangeGrade';
 import MainPage from './landing_page/MainPage';
+import AddStudent from './components/classesComp/AddStudent';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<MainPage/>}/>
         <Route path="/classes" element={<Classes/>} />
         <Route path="/classes/:teacherName" element={<IndividualClass />} />
+        <Route path="/classes/:teacherName/addstudent" element={<AddStudent />} />
         <Route path="/add-class" element={<AddClass/>}/>
         <Route path="/student/:studentTeacher/:studentName/:grade" element={<ChangeGrade/>} />
         <Route path="/calendar" element = {<Calendar/>} />

@@ -57,7 +57,9 @@ const Roster = (props) =>{
             <h4>Average Grade</h4>
             <h3>{average}</h3>
             </CardContent></Card>
+            <Button variant="contained" style={{marginTop:"5px"}}><Link to="./addstudent" style={{color:'white'}}>Add Student</Link></Button>
         </div>
+        
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="roster">
                 <TableHead>
