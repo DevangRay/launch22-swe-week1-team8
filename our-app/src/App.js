@@ -30,16 +30,6 @@ function App() {
         <Link to="/calendar"> Calendar </Link>
         <Link to="/directory"> Directory </Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/classes" element={<Classes/>} />
-        <Route path="/classes/:teacherName" element={<IndividualClass />} />
-        <Route path="/add-class" element={<AddClass/>}/>
-        <Route path="/remove-class" element={<RemoveClass/>}/>
-        <Route path="/calendar" element = {<Calendar/>} />
-        <Route path="/directory" element = {<Directory/>} />
-        <Route path='/*' element={<Error/>}/>
-      </Routes>
     </div>
   );
 }
