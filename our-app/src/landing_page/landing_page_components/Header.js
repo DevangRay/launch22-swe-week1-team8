@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appbar: {
     background: 'none',
+    color: '#dc7027',
   },
   appbarWrapper: {
     width: '80%',
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: '1',
   },
   icon: {
-    color: '#f4d8ae',
+    color: '#dc7027',
     fontSize: '2rem',
   },
   colorText: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '4.5rem',
   },
   goDown: {
-    color: '#f4d8ae',
+    color: '#dc7027',
     fontSize: '4rem',
   },
 }));
@@ -53,7 +54,7 @@ export default function Header() {
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
-            Thomas<span className={classes.colorText}>Jefferson.</span>
+            Thomas<span className={classes.colorText}> Jefferson.</span>
           </h1>
           <IconButton>
             <SortIcon className={classes.icon} />
@@ -69,7 +70,7 @@ export default function Header() {
         <div className={classes.container}>
           <h1 className={classes.title}>
             Thomas Jefferson <br />
-            Elementary School<span className={classes.colorText}>Online.</span>
+            Elementary School<span className={classes.colorText}> Online.</span>
           </h1>
           <Scroll to="place-to-visit" smooth={true}>
             <IconButton>
