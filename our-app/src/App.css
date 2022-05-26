@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.navBar {
+  margin-top: 10%;
+}
+
+.component {
+  margin-bottom: 500px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,6 +34,14 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.button {
+  padding: 2%;
+}
+
+.breaker{
+  min-height: 100px;
 }
 
 @keyframes App-logo-spin {

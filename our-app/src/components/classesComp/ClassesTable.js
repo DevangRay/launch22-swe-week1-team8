@@ -87,7 +87,7 @@ const ClassesTable = (props) =>{
                         {entry.numStudents}
                         </TableCell>
                         <TableCell><Button variant="contained">
-                            <Link to={`/classes/${entry.teacher}`} style={{color:'white'}}>View</Link>
+                            <Link to={`/classes/${entry.teacher}`} style={{color:'white', textDecoration: 'none' }}>View</Link>
                         </Button></TableCell>
                         <TableCell><Button variant="contained" onClick={() => {setDelete(entry.id)}}>
                             Delete

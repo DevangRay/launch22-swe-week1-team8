@@ -1,22 +1,23 @@
 import {useState} from 'react';
 import {Grid, TextField, Button} from "@mui/material";
-import './classes.css';
+import './directory.css';
 import {useNavigate} from 'react-router-dom';
 import { addDoc, collection } from "firebase/firestore";
 import {useEffect} from 'react';
 import db from "../../firebase";
 
-function AddClass() {
+export default function AddTeacher() {
     const navigate = useNavigate();
-    const collectionName = "classes";
+    const collectionName = "directory";
 
     const defualtValues ={
-        name: "",
-        classsize: 0,
+        first: "",
+        last: "",
+        profile: "https://www.freeiconspng.com/thumbs/profile-icon-png/profile-picture-icon-png-people-person-profile--4.png",
+        role: "Teacher",
     }
     const [formValues, setFormValues] = useState(defualtValues);
     const [dataSubmitted, setDataSubmitted] = useState(false);
-    // const [isWrtten, setIsWritten] = useState(false);
 
     const handleInputChange = (e) => {
         setDataSubmitted(false);
@@ -34,14 +35,16 @@ function AddClass() {
     };
 
     function goBack() {
-        navigate("/classes");
+        navigate("/directory");
     }
 
     const safeAsyncFunction = async () => {
         try {
           const docRef = await addDoc(collection(db, collectionName), {
-            numberstudents: formValues.classsize,
-            teacher: formValues.name,
+            first: formValues.first,
+            last: formValues.last,
+            role: "Teacher",
+            profile: formValues.profile,
           });
           console.log("Document written with ID: ", docRef.id);
           setDataSubmitted(false);
@@ -59,35 +62,35 @@ function AddClass() {
 
     return(
         <div>
-            <h1>New Class Form</h1>
-            <div className='addClassForm'>
+            <h1>New Teacher Form</h1>
+            <div className='addStudentForm'>
                 {/* <p>Please Enter Information to Create a New Class</p> */}
                 <form onSubmit={handleSubmit}>
                 <Grid container spacing={5} alignItems="center" justify="center" direction="column">
                     <Grid item>
                         <TextField
                             required
-                            id="name-input"
-                            name="name"
-                            label="Name"
+                            id="first-name-input"
+                            name="first"
+                            label="First Name"
                             type="text"
-                            value={formValues.name}
+                            value={formValues.first}
                             onChange={handleInputChange}
                         /> 
                     </Grid>
                     <Grid item>
                         <TextField
                             required
-                            id="class-size-input"
-                            name="classsize"
-                            label="Class Size"
-                            type="number"
-                            value={formValues.classsize}
-                            onChange = {handleInputChange}
-                        />
+                            id="last-name-input"
+                            name="last"
+                            label="Last Name"
+                            type="text"
+                            value={formValues.last}
+                            onChange={handleInputChange}
+                        /> 
                     </Grid>
                     <div className='submitButton'>
-                        <Button variant="contained" color="primary" type="submit" className='addClassbuttong'>
+                        <Button variant="contained" color="primary" type="submit" className='addStudentbutton'>
                             Submit
                         </Button>
                     </div>
@@ -98,5 +101,3 @@ function AddClass() {
         </div>
     );
 }
-
-export default AddClass;

@@ -3,12 +3,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Events from './Events';
-// import { CardActions, CardContent, CardMedia, Typography } from '@mui/material';
-// import Card from '@mui/material/Card';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '15vh',
+      fontFamily: 'Nunito',
+      background: '#fafafa',
+      color: '#dc7027'
+    }, 
+    body: {
+      background: '#fafafa',
+      justifyContent: 'center'
+    },
+    emphasisText: {
+      color: '#f4d8ae',
+    }
+  }));
 
 function Calendar() {
     const [value,setValue]=useState(null);
-
+    const classes = useStyles();
     const handleSelect=(e)=>{
         setValue(e)
     }
@@ -33,8 +51,8 @@ function Calendar() {
     const id = toMonth(value);
 
     return (
-      <div>
-            <h1>School Event Calender</h1>
+      <div className={classes.body}>
+            <h1 className={classes.root}>School Event Calender</h1>
             <div className="selector">
                 <div className="monthName">
                         <h5>Select the Month:</h5>

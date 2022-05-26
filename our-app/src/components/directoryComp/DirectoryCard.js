@@ -32,9 +32,9 @@ function DirectoryCard(props) {
                         {role}
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small" target="_blank">{linkText}</Button>
-                </CardActions>
+                {/* <CardActions>
+                    <Button size="small">Remove</Button>
+                </CardActions> */}
             </Card>
         </div>
     );
