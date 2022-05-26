@@ -19,6 +19,8 @@ function App() {
         <Route path="/classes" element={<Classes/>} />
         <Route path="/classes/:teacherName" element={<IndividualClass />} />
         <Route path="/student/:studentName" element={<ChangeGrade/>} />
+        <Route path="/add-class" element={<AddClass/>}/>
+        <Route path="/remove-class" element={<RemoveClass/>} />
         <Route path="/calendar" element = {<Calendar/>} />
         <Route path="/directory" element = {<Directory/>} />
         <Route path='/*' element={<Error/>}/>

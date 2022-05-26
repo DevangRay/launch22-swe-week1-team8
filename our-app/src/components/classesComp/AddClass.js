@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import {Grid, TextField, FormControlLabel, FormControl, FormLabel, RadioGroup, Radio, Select, MenuItem, Slider, Button} from "@mui/material";
+import {Grid, TextField, Button} from "@mui/material";
 import './classes.css';
 import {useNavigate} from 'react-router-dom';
 import WriteClass from './WriteClass';
-import { addDoc, setDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import {useEffect} from 'react';
 import db from "../../firebase";
 
@@ -16,10 +16,11 @@ function AddClass() {
         classsize: 0,
     }
     const [formValues, setFormValues] = useState(defualtValues);
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [dataSubmitted, setDataSubmitted] = useState(false);
+    // const [isWrtten, setIsWritten] = useState(false);
 
     const handleInputChange = (e) => {
-        setIsSubmitted(false);
+        setDataSubmitted(false);
         const{name, value} = e.target;
         setFormValues({
             ...formValues,
@@ -30,17 +31,32 @@ function AddClass() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(formValues);
-        setIsSubmitted(true);
+        setDataSubmitted(true);
     };
 
     function goBack() {
         navigate("/classes");
     }
 
-    if (isSubmitted) {
-        setDoc(addDoc(db, collectionName))
-        //setIsSubmitted(false); //to reset the form
-    }
+    const safeAsyncFunction = async () => {
+        try {
+          const docRef = await addDoc(collection(db, collectionName), {
+            numberstudents: formValues.classsize,
+            teacher: formValues.name,
+          });
+          console.log("Document written with ID: ", docRef.id);
+          setDataSubmitted(false);
+        } catch (err) {
+          console.log("async-error", err);
+        }
+      };
+
+    useEffect( () => {
+        if(dataSubmitted) {
+            setDataSubmitted(false);
+            safeAsyncFunction();
+        }
+    }, [dataSubmitted])
 
     return(
         <div>
@@ -79,7 +95,7 @@ function AddClass() {
                 </Grid>
                 </form>
             </div>
-            {isSubmitted && <WriteClass name={formValues.name} classsize={formValues.classsize}/>}
+            {dataSubmitted && <WriteClass name={formValues.name} classsize={formValues.classsize}/>}
         </div>
     );
 }

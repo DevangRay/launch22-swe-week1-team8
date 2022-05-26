@@ -3,10 +3,6 @@ import {useEffect} from 'react';
 import db from "../../firebase";
 
 function WriteClass(props) {
-    const collectionName = "classes";
-    useEffect( () => {
-        setDoc(addDoc(db, collectionName))
-    }, [])
 
     return(
         <div>
