@@ -2,7 +2,6 @@ import db from '../../firebase';
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from 'react';
 import EventCard from './EventCard';
-import CircularProgress from '@mui/material/CircularProgress';
 
 function Events(props) {
     const [data, setData] = useState({});
@@ -16,7 +15,7 @@ function Events(props) {
       );
 
       async function timeSensativeAction(){ //must be async func
-        await delay(300) //wait 5 seconds
+        await delay(50) //wait 5 seconds
         setIsLoading(false);
         //continue on...
       }
@@ -36,21 +35,28 @@ function Events(props) {
         data.forEach((doc) => {
             if(doc.data()["Month"] === month) {
                 array.push(doc.data());
+                console.log(doc.data().Dates);
             }
         })
     }
 
+    console.log(array);
+
     function translateToDate(unix) {
+        // console.log("UNIX", unix);
         unix = unix - 62135587294; //subtracts 1969 years in seconds
-        const date = new Date(unix*1000);
+        // console.log(unix === 1669316400);
+        // console.log("unix date", unix);
+        const date = new Date(unix*1e3);
+        // console.log("final date", date.toLocaleDateString("en-US"))
         return date.toLocaleDateString("en-US");
     }
 
     return (
         <div>
-            {isLoading && <div className='loading'>
+            {/* {isLoading && <div className='loading'>
                 <CircularProgress/>
-            </div>}
+            </div>} */}
             {array.map( (event) => (
                 <div>
                     <EventCard title={event.Title} date={translateToDate(event.Date)} location={event.Location} description={event.Description} src={event.Link}/>
