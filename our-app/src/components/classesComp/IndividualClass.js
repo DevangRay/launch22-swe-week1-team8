@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, setDoc } from "firebase/firestore";
 import { Card, CardContent, Button } from "@mui/material";
 import db from "../../firebase"
 import Roster from "./Roster"
@@ -9,6 +9,7 @@ const IndividualClass = (props) =>{
     let params = useParams();
     const [classData, updateClassData] = useState([]);
     const [classDoc, updateClassDoc] = useState(null);
+    const [numStudents, updateNumStudents] = useState(0);
 
     const fetchClassData = () =>{
         const classesRef = collection(db, "classes");
@@ -18,11 +19,30 @@ const IndividualClass = (props) =>{
             updateClassDoc(querySnapshot.docs[0])
             return updateClassData(querySnapshot.docs[0].data());
         })
+        .then(pushNumStudents())
+    }
+
+    const pushNumStudents = () =>{
+        const classesRef = collection(db, "classes");
+        const q1 = query(classesRef, where('studentteacher', '==', params.teacherName));
+        getDocs(q1)
+        .then((querySnapshot) => {
+            updateNumStudents(querySnapshot.docs.length);
+        })
+        //const classesRef = collection(db, "classes");
+        const q = query(classesRef, where('teacher', '==', params.teacherName));
+        getDocs(q)
+        .then((querySnapshot) => {
+            setDoc(querySnapshot.docs[0].ref, {
+            "numberstudents": numStudents > 0 ? numStudents : querySnapshot.docs[0].data().numberstudents,
+            "teacher": params.teacherName,
+        }); 
+        })
     }
 
     useEffect(()=>{
         fetchClassData();
-    }, [])
+    }, [numStudents, classData])
 
     return (
     <>

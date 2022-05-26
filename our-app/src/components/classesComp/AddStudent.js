@@ -16,7 +16,6 @@ const AddStudent = (props) =>{
             "grade" : gradeRef.current.value ? gradeRef.current.value : 0,
             "studentname" : nameRef.current.value ? nameRef.current.value : ""
         })
-        .then()
     }
 
     return (
