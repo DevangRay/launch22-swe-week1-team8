@@ -55,7 +55,7 @@ const ClassesTable = (props) =>{
                         {entry.numStudents}
                         </TableCell>
                         <TableCell><Button variant="contained">
-                            <Link to={`/classes/${entry.studentteacher}`} style={{color:'white'}}>View</Link>
+                            <Link to={`/classes/${entry.teacher}`} style={{color:'white'}}>View</Link>
                         </Button></TableCell>
                         </TableRow>
                         : <></>
