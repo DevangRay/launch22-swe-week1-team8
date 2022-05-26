@@ -18,7 +18,7 @@ function Directory() {
 
     const safeAsyncFunction = async () => {
         try {
-          const allDocs = await getDocs(q)   //collection(db, collectionName)
+          const allDocs = await getDocs(q)
           setData(allDocs);
           setIsLoading(false);
         } catch (err) {
@@ -27,9 +27,15 @@ function Directory() {
       };
 
       useEffect( () => {
+          console.log("load")
           setIsLoading(true);
           safeAsyncFunction();
       }, [role])
+
+      useEffect( () => {
+        scroll();
+        console.log("scroll")
+      }, [array])
 
       if(!isLoading) {
         data.forEach((doc) => {
@@ -44,6 +50,11 @@ function Directory() {
     function roleToTeacher() {
       setRole(["teacher", "Teacher"]);
     }
+
+    const scroll = () => {
+      const section = document.querySelector( '#profiles' );
+      section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+    };
 
     if (array.length > 0) {
       display = true;
@@ -61,24 +72,23 @@ function Directory() {
     return (
       <div>
         <h1>Thomas Jefferson Elementary School Directory</h1>
-        <br></br>
-        <ButtonGroup variant="text" aria-label="text button group">
+        <ButtonGroup variant="text" aria-label="text button group" className="directoryButton">
           <Button onClick={roleToStudent} > View All Students </Button>
           <Button onClick={roleToTeacher} > View All Teachers </Button>
         </ButtonGroup>
         
         {display && <div>
-          <h2>{roleTitle}s</h2>
+          <h2 onLoad={scroll}>{roleTitle}s</h2>
         </div>}
-        <Grid container spacing={0.5}>
-        {array.map( (name) => (
-            <Grid item xl={2} lg={3}>
-                {/* <div key = {name.first}> */}
+        <div id="profiles">
+          <Grid container spacing={0.5}>
+          {array.map( (name) => (
+              <Grid item xl={2} lg={3} key={name.first + name.last}>
                     <DirectoryCard first={name.first} last={name.last} src={name.profile} role={roleTitle}/>
-                {/* </div> */}
-            </Grid>
-            ))}
-        </Grid>
+              </Grid>
+              ))}
+          </Grid>
+        </div>
       </div>
     );
 }
