@@ -42,7 +42,7 @@ const IndividualClass = (props) =>{
 
     useEffect(()=>{
         fetchClassData();
-    }, [numStudents])
+    }, [numStudents, classData])
 
     return (
     <>
