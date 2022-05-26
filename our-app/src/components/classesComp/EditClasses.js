@@ -13,8 +13,8 @@ const EditClasses = (props) =>{
     }
 
     return(<>
-    <Button variant="outlined" onClick={goToAddClass}>Add Class</Button>
-    <Button variant="outlined" onClick={goToRemoveClass}>Remove Class</Button>
+    <Button variant="outlined" onClick={goToAddClass}> Add Classes </Button>
+    <Button variant="outlined" onClick={goToRemoveClass}> Remove Classes </Button>
     <ClassesTable />
     </>)
 }
