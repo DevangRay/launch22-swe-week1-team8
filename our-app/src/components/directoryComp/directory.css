@@ -3,6 +3,23 @@
     margin: 20px;
 }
 
+.profile:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
 .directoryButton {
     padding: 2%;
+  }
+
+.header{
+    padding: 10px;
+    text-align: center;
+    background:  #f4d8ae;
+    color: #dc7027;
+    font-size: 20px;
+  }
+
+  body{
+      background-color: #fafafa;
   }

@@ -3,6 +3,7 @@ import Header from './landing_page_components/Header';
 import Functions from './landing_page_components/Functions';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
+import { ButtonGroup, Button } from '@mui/material';
 
 //insert home page background here
 const useStyles = makeStyles((theme) => ({

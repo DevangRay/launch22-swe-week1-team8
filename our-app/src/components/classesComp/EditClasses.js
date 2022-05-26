@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router-dom';
 import { Button } from "@mui/material"
 import ClassesTable from "./ClassesTable"
+import './classes.css';
 
 const EditClasses = (props) =>{
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const EditClasses = (props) =>{
     }
 
     return(<>
-    <Button variant="outlined" onClick={goToAddClass}> Add Classes </Button>
+    <Button variant="outlined" onClick={goToAddClass} className='addClassButton'> Add Classes </Button>
     <ClassesTable />
     </>)
 }

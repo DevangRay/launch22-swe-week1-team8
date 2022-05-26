@@ -2,7 +2,6 @@ import {useState} from 'react';
 import {Grid, TextField, Button} from "@mui/material";
 import './classes.css';
 import {useNavigate} from 'react-router-dom';
-import WriteClass from './WriteClass';
 import { addDoc, collection } from "firebase/firestore";
 import {useEffect} from 'react';
 import db from "../../firebase";
@@ -60,9 +59,9 @@ function AddClass() {
 
     return(
         <div>
-            <Button variant="outlined" onClick={goBack}> Go Back </Button>
+            <h1>New Class Form</h1>
             <div className='addClassForm'>
-                <p>Here to Add a Class</p>
+                {/* <p>Please Enter Information to Create a New Class</p> */}
                 <form onSubmit={handleSubmit}>
                 <Grid container spacing={5} alignItems="center" justify="center" direction="column">
                     <Grid item>
@@ -87,7 +86,7 @@ function AddClass() {
                             onChange = {handleInputChange}
                         />
                     </Grid>
-                    <div className='addClassButton'>
+                    <div className='submitButton'>
                         <Button variant="contained" color="primary" type="submit" className='addClassbuttong'>
                             Submit
                         </Button>
@@ -95,7 +94,7 @@ function AddClass() {
                 </Grid>
                 </form>
             </div>
-            {dataSubmitted && <WriteClass name={formValues.name} classsize={formValues.classsize}/>}
+            <Button variant="outlined" onClick={goBack} className='goBackButton'> Go Back </Button>
         </div>
     );
 }

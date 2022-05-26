@@ -62,6 +62,7 @@ function Events(props) {
                     <EventCard title={event.Title} date={translateToDate(event.Date)} location={event.Location} description={event.Description} src={event.Link}/>
                 </div>
             ))}
+            <div className='breaker'></div>
         </div>
     );
 

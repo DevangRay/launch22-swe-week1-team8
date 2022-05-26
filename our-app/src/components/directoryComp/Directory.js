@@ -3,9 +3,30 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from 'react';
 import { ButtonGroup, Button, Grid } from '@mui/material';
 import DirectoryCard from "./DirectoryCard";
+import { makeStyles } from '@material-ui/core/styles';
 import './directory.css';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '15vh',
+    fontFamily: 'Nunito',
+    background: '#fafafa',
+    color: '#dc7027'
+  }, 
+  body: {
+    background: '#fafafa',
+    justifyContent: 'center'
+  },
+  emphasisText: {
+    color: '#f4d8ae',
+  }
+}));
+
 function Directory() {
+    const classes = useStyles();
     const [data, setData] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [role, setRole] = useState(["", ""]);
@@ -70,14 +91,16 @@ function Directory() {
     }
 
     return (
-      <div>
-        <h1>Thomas Jefferson Elementary School Directory</h1>
-        <ButtonGroup variant="text" aria-label="text button group" className="directoryButton">
+      <div className={classes.body}>
+        <div className={classes.root}>
+          <h1>Thomas Jefferson Elementary School <span className={classes.emphasisText}>Directory</span></h1>
+        </div>
+        <ButtonGroup variant="text" aria-label="text button group" className='directoryButton'>
           <Button onClick={roleToStudent} > View All Students </Button>
           <Button onClick={roleToTeacher} > View All Teachers </Button>
         </ButtonGroup>
         
-        {display && <div>
+        {display && <div className={classes.body}>
           <h2 onLoad={scroll}>{roleTitle}s</h2>
         </div>}
         <div id="profiles">
