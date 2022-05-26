@@ -87,7 +87,7 @@ function Directory() {
 
     if (array.length > 0) {
       display = true;
-      if(array[0].role === "student" || array[0].role === "Student") {
+      if(array[0].data.role === "student" || array[0].data.role === "Student") {
         roleTitle = "Student";
       }
       else{
@@ -110,8 +110,8 @@ function Directory() {
 
     function setDelete(id) {
       array.forEach( (name) => {
-        if (name.first === id) {
-            console.log(name.teacher);
+        if (name.id === id) {
+            console.log(name.data.first);
             setGoDelete(id);
         }
     })
