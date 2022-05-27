@@ -7,6 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Collapse } from '@material-ui/core';
 
+import { useNavigate } from 'react-router-dom';
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 645,
@@ -35,12 +37,17 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImageCard({ place, checked }) {
+export default function ImageCard({ place, checked, location }) {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  function goTo() {
+    navigate(location);
+  }
 
   return (
     <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
-      <Card className={classes.root}>
+      <Card className={classes.root} onClick={goTo}>
         <CardMedia
           className={classes.media}
           image={place.imageUrl}

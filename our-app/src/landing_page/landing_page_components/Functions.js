@@ -19,10 +19,10 @@ export default function () {
   const checked = useWindowPosition('header');
   return (
     <div className={classes.root} id="place-to-visit">
-      <ImageCard place={Feature[0]} checked={checked} />
-      <ImageCard place={Feature[1]} checked={checked} />
-      <ImageCard place={Feature[2]} checked={checked} />
-      <ImageCard place={Feature[3]} checked={checked} />
+      <ImageCard place={Feature[0]} checked={checked} location={"/classes"}/>
+      <ImageCard place={Feature[1]} checked={checked} location={"/calendar"}/>
+      <ImageCard place={Feature[2]} checked={checked} location={"/directory"}/>
+      <ImageCard place={Feature[3]} checked={checked} location={"/directory"}/>
     </div>
   );
 }

@@ -76,7 +76,7 @@ export default function Header() {
             Thomas Jefferson <br />
             Elementary School<span className={classes.colorText}> Online.</span>
           </h1>
-          <h4 className={classes.mantra}>"The Brits shall never know such astute education as this" - Thomas J.</h4>
+          <h4 className={classes.mantra}>"The Brits shall never know such astute education as this" - T. Jefferson</h4>
           <Scroll to="place-to-visit" smooth={true}>
             <IconButton>
               <ExpandMoreIcon className={classes.goDown} />
