@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     fontSize: '2rem',
     color: '#fff',
   },
+  mantra: {
+    fontFamily: 'Nunito',
+    fontWeight: 'bold',
+    fontSize: '2rem',
+    color: '#fff',
+  },
   desc: {
     fontFamily: 'Nunito',
     fontSize: '1.1rem',
@@ -38,7 +44,7 @@ export default function ImageCard({ place, checked }) {
         <CardMedia
           className={classes.media}
           image={place.imageUrl}
-          title="Contemplative Reptile"
+          title="Sommething"
         />
         <CardContent>
           <Typography
@@ -48,6 +54,12 @@ export default function ImageCard({ place, checked }) {
             className={classes.title}
           >
             {place.title}
+          </Typography>
+          <Typography
+            component="h4"
+            className={classes.mantra}
+          >
+            {place.mantra}
           </Typography>
           <Typography
             variant="body2"
