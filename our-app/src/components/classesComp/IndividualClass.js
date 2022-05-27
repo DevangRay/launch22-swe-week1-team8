@@ -40,17 +40,13 @@ const IndividualClass = (props) =>{
         })
     }
 
-    useEffect(()=>{
-        fetchClassData();
-    }, [numStudents, classData])
-
     return (
     <>
     <h1>{params.teacherName}'s Class</h1>
     <div style={{margin:'auto', textAlign: 'center', display: 'inline-block'}}>
     <Card sx={{ maxWidth: 275}}>
         <CardContent>
-            <h6>Number of Students: </h6>
+            <h4>Number of Students</h4>
             {classData !== [] && <h5>{classData.numberstudents}</h5>}
         </CardContent>
     </Card>
