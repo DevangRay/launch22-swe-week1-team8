@@ -27,10 +27,6 @@ function App() {
     marginTop: "10%"
   }
 
-  useEffect(() => {
-    document.title = "TJES"
- }, []);
-
   return (
     <div className="App">
       <div className='components'>
