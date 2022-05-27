@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { ButtonGroup, Button } from '@mui/material';
+import {useEffect} from "react";
 import Classes from './components/classesComp/Classes';
 import Error from './components/routerComp/Error';
 import Calendar from './components/calenderComp/Calendar';
@@ -25,6 +26,10 @@ function App() {
     width: "100%",
     marginTop: "10%"
   }
+
+  useEffect(() => {
+    document.title = "TJES"
+ }, []);
 
   return (
     <div className="App">

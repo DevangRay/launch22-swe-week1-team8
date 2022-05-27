@@ -66,7 +66,7 @@ const Roster = (props) =>{
         <div  style={{display: 'inline-block', margin:'auto'}}>
         <Card style={{maxWidth: 300}}><CardContent>
             <h4>Average Grade</h4>
-            <h3>{average}</h3>
+            <h3>{average ? average.toFixed(2) : "..."}</h3>
             </CardContent></Card>
             <Button variant="contained" style={{marginTop:"5px"}}><Link to="./addstudent" style={{color:'white'}}>Add Student</Link></Button>
         </div>
