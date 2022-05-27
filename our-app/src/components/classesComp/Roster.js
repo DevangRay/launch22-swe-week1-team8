@@ -1,7 +1,7 @@
 import { getDocs, query, QuerySnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import db from "../../firebase"
-import { where, collection } from "firebase/firestore";
+import { where, collection, deleteDoc } from "firebase/firestore";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -16,6 +16,7 @@ import { Card } from "@mui/material";
 const Roster = (props) =>{
     const [roster, updateRoster] = useState([]);
     const [average, updateAverage] = useState(0);
+    const [hasDeleted, updateHasDeleted] = useState(false)
 
     const fetchRoster = () =>{
         const classesRef = collection(db, "classes");
@@ -40,6 +41,17 @@ const Roster = (props) =>{
         updateAverage(val);
     }
 
+    const deleteStudent = (name, teacher, grade) =>{
+        const classesRef = collection(db, "classes");
+        const q = query(classesRef, where('studentname', '==', name));
+        getDocs(q)
+        .then((querySnapshot) => {
+            deleteDoc(querySnapshot.docs[0].ref)
+        })
+        .then(updateHasDeleted(!hasDeleted))
+    }
+
+
     useEffect(()=>{
         calculateAverage();
     }, [roster])
@@ -47,7 +59,6 @@ const Roster = (props) =>{
     useEffect(()=>{
         fetchRoster();
         calculateAverage();
-        
     }, [])
     
     return(<>
@@ -57,13 +68,16 @@ const Roster = (props) =>{
             <h4>Average Grade</h4>
             <h3>{average}</h3>
             </CardContent></Card>
+            <Button variant="contained" style={{marginTop:"5px"}}><Link to="./addstudent" style={{color:'white'}}>Add Student</Link></Button>
         </div>
+        
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="roster">
                 <TableHead>
                 <TableRow>
                     <TableCell align="center">Name</TableCell>
                     <TableCell align="center">Grade (%)</TableCell>
+                    <TableCell align="center"></TableCell>
                     <TableCell></TableCell>
                 </TableRow>
                 </TableHead>
@@ -86,6 +100,9 @@ const Roster = (props) =>{
                                 <Link to={"../student/"+entry.studentteacher+"/"+entry.studentname+"/"+entry.grade} style={{color:'white'}}>
                                 Change Grade
                                 </Link>
+                            </Button></TableCell>
+                            <TableCell><Button variant="contained" color="error" onClick={()=>deleteStudent(entry.studentname, entry.studentteacher, entry.grade)}>
+                                Delete
                             </Button></TableCell>
                             </TableRow>
                             : <></>
