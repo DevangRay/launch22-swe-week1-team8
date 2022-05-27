@@ -48,12 +48,12 @@ const IndividualClass = (props) =>{
     <>
     <h1>{params.teacherName}'s Class</h1>
     <div style={{margin:'auto', textAlign: 'center', display: 'inline-block'}}>
-    <Card sx={{ maxWidth: 275}}>
+    {/* <Card sx={{ maxWidth: 275}}>
         <CardContent>
             <h4>Number of Students</h4>
             {classData !== [] && <h5>{classData.numberstudents}</h5>}
         </CardContent>
-    </Card>
+    </Card> */}
     </div>
     <Roster teachername={params.teacherName}/>
     
