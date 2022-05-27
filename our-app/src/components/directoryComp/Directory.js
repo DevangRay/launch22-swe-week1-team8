@@ -129,7 +129,7 @@ function Directory() {
         
         {display && <div className={classes.body}>
           <h2 onLoad={scroll}>{roleTitle}s</h2>
-          {roleTitle==="Student"?<Button variant="outlined"> <Link to="/add-student">Add {roleTitle}</Link></Button>:<Button variant="outlined"> <Link to="/add-teacher">Add {roleTitle}</Link></Button>}
+          {roleTitle==="Student"?<Button variant="outlined" style={{textDecoration: 'none'}}> <Link to="/add-student" style={{textDecoration: 'none' }}>Add {roleTitle}</Link></Button>:<Button variant="outlined" style={{textDecoration: 'none'}}> <Link to="/add-teacher" style={{textDecoration: 'none' }}>Add {roleTitle}</Link></Button>}
           
         </div>}
         <div id="profiles">
