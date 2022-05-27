@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { /*Outlet,*/ Link } from "react-router-dom";
 
 const ClassesTable = (props) =>{
     //const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
