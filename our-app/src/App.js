@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { ButtonGroup, Button } from '@mui/material';
-import {useEffect} from "react";
+// import {useEffect} from "react";
 import Classes from './components/classesComp/Classes';
 import Error from './components/routerComp/Error';
 import Calendar from './components/calenderComp/Calendar';
@@ -46,7 +46,9 @@ function App() {
           <Route path='/*' element={<Error/>}/>
         </Routes>
       </div>
+
       <div className='breaker'></div>
+      
       <div style={style} className="navBar">
         <nav>
           <ButtonGroup variant='text' aria-label="text button group">
