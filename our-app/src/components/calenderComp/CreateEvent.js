@@ -5,9 +5,6 @@ import {useNavigate} from 'react-router-dom';
 import { addDoc, collection } from "firebase/firestore";
 import {useEffect} from 'react';
 import db from "../../firebase";
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 export default function CreateEvent() {
     const navigate = useNavigate();
@@ -24,7 +21,6 @@ export default function CreateEvent() {
     }
     const [formValues, setFormValues] = useState(defualtValues);
     const [dataSubmitted, setDataSubmitted] = useState(false);
-    // const [isWrtten, setIsWritten] = useState(false);
 
     const handleInputChange = (e) => {
         setDataSubmitted(false);
