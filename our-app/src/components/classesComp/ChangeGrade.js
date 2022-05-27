@@ -35,7 +35,7 @@ const ChangeGrade = (props) =>{
         <Input defaultValue={grade} variant="" inputRef={gradeRef}></Input>
         <Button variant="contained" onClick={changeGrade}>Update</Button>
         <br></br>
-        <Button variant="outlined" style={{marginTop:"5px"}}><Link to={"../classes/"+params.studentTeacher}>Back</Link></Button>
+        <Button variant="outlined" style={{marginTop:"5px"}}><Link to={"../classes/"+params.studentTeacher} style={{textDecoration: 'none'}}>Back</Link></Button>
     </>)
 }
 
