@@ -4,6 +4,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Events from './Events';
 import { makeStyles } from '@material-ui/core/styles';
+import {useNavigate} from 'react-router-dom';
+import { Button } from "@mui/material"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
 function Calendar() {
     const [value,setValue]=useState(null);
     const classes = useStyles();
+    const navigate = useNavigate();
+
+    function goToAddEvent() {
+        navigate("/add-event")
+    }
+
     const handleSelect=(e)=>{
         setValue(e)
     }
@@ -80,6 +88,7 @@ function Calendar() {
                             <Dropdown.Item eventKey="some link">some link</Dropdown.Item> */}
                     </DropdownButton>
                 </div>
+                <Button variant="outlined" onClick={goToAddEvent} className='addClassButton' style={{textDecoration: 'none'}}>Create Event</Button>
             </div>
             
             <div className="display">

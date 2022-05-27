@@ -54,6 +54,7 @@ function AddClass() {
         if(dataSubmitted) {
             setDataSubmitted(false);
             safeAsyncFunction();
+            setFormValues(defualtValues);
         }
     }, [dataSubmitted])
 

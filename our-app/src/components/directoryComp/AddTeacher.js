@@ -57,6 +57,7 @@ export default function AddTeacher() {
         if(dataSubmitted) {
             setDataSubmitted(false);
             safeAsyncFunction();
+            setFormValues(defualtValues);
         }
     }, [dataSubmitted])
 
