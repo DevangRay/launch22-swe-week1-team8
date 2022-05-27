@@ -63,10 +63,15 @@ function Calendar() {
             <h1 className={classes.root}>School Event Calender</h1>
             <div className="selector">
                 <div className="monthName">
-                        <h5>Select the Month:</h5>
+                        
+
+                <Button variant="outlined" onClick={goToAddEvent} className='addClassButton' style={{textDecoration: 'none'}}>
+                  Create Event
+                </Button> 
                 </div>
                 
                 <div className='menu'>
+                <h5>Select the Month:</h5>
                     <DropdownButton
                         title={id}
                         id="dropdown-menu-align-left"
@@ -88,8 +93,12 @@ function Calendar() {
                             <Dropdown.Item eventKey="some link">some link</Dropdown.Item> */}
                     </DropdownButton>
                 </div>
-                <Button variant="outlined" onClick={goToAddEvent} className='addClassButton' style={{textDecoration: 'none'}}>Create Event</Button>
+
+                
+                
             </div>
+
+            
             
             <div className="display">
                 {value && <h2>Events in {id}</h2>}
