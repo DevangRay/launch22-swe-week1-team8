@@ -1,55 +1,69 @@
 import db from '../../firebase';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from 'react';
 import EventCard from './EventCard';
+import { Button } from "@mui/material"
 
 function Events(props) {
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [goDelete, setGoDelete] = useState(null);
     const month = props.month;
     const collectionName = "calendar";
     const array = [];
 
-    const delay = (ms) => new Promise(
-        resolve => setTimeout(resolve, ms)
-      );
-
-      async function timeSensativeAction(){ //must be async func
-        await delay(50) //wait 5 seconds
-        setIsLoading(false);
-        //continue on...
-      }
+    const deleteClass = async () => {
+        try {
+          await deleteDoc(doc(db, collectionName, goDelete));
+          console.log("deleted");
+          setGoDelete(null);
+        } catch (err) {
+          console.log("async-error", err);
+        }
+      };
 
     useEffect ( () => {
-        setIsLoading(true)
-        getDocs(collection(db, collectionName))
-        .then( (allDocs) => {
-            setData(allDocs);
-        })
-        .then(() => {
-            timeSensativeAction();
-        })
-    }, [month])
+        // if(goDelete === null) {
+            setIsLoading(true)
+            getDocs(collection(db, collectionName))
+            .then( (allDocs) => {
+                setData(allDocs);
+            })
+            .then(() => {
+                setIsLoading(false);
+                // timeSensativeAction();
+            })
+    }, [month, goDelete])
+
+    useEffect( () => {
+        if (goDelete !== null){
+            deleteClass();
+        }
+    }, [goDelete])
 
     if(!isLoading) {
         data.forEach((doc) => {
             if(doc.data()["Month"] === month) {
-                array.push(doc.data());
-                console.log(doc.data().Dates);
+                array.push({data: doc.data(), id: doc._key.path.segments[6]});
             }
         })
     }
 
-    console.log(array);
+    // array.forEach((event) => {
+    //     console.log("event date unix:", event.data.Date.seconds)
+    // })
 
     function translateToDate(unix) {
-        // console.log("UNIX", unix);
-        unix = unix - 62135587294; //subtracts 1969 years in seconds
-        // console.log(unix === 1669316400);
-        // console.log("unix date", unix);
         const date = new Date(unix*1e3);
-        // console.log("final date", date.toLocaleDateString("en-US"))
         return date.toLocaleDateString("en-US");
+    }
+
+    function setDelete(id) {
+        array.forEach( (event) => {
+            if (event.id === id) {
+                setGoDelete(id);
+            }
+        })
     }
 
     return (
@@ -58,8 +72,9 @@ function Events(props) {
                 <CircularProgress/>
             </div>} */}
             {array.map( (event) => (
-                <div>
-                    <EventCard title={event.Title} date={translateToDate(event.Date)} location={event.Location} description={event.Description} src={event.Link}/>
+                <div key={event.id}>
+                    <EventCard className="calendarEvent" title={event.data.Title} date={translateToDate(event.data.Date.seconds)} location={event.data.Location} description={event.data.Description} src={event.data.Link}/>
+                    <Button className='deleteButton' onClick={() => {setDelete(event.id)}}>Delete This Event</Button>
                 </div>
             ))}
             <div className='breaker'></div>

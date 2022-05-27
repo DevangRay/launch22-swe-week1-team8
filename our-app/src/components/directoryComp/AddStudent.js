@@ -57,6 +57,7 @@ export default function AddStudent() {
         if(dataSubmitted) {
             setDataSubmitted(false);
             safeAsyncFunction();
+            setFormValues(defualtValues);
         }
     }, [dataSubmitted])
 

@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { /*Outlet,*/ Link } from "react-router-dom";
 
 const ClassesTable = (props) =>{
     //const exampleData = [{teacher: "Smith", numStudents: 21}, {teacher: "Jones", numStudents: 32}, {teacher: "Spjziak", numStudents: 19},]
@@ -89,7 +89,7 @@ const ClassesTable = (props) =>{
                         <TableCell><Button variant="contained">
                             <Link to={`/classes/${entry.teacher}`} style={{color:'white', textDecoration: 'none' }}>View</Link>
                         </Button></TableCell>
-                        <TableCell><Button variant="contained" onClick={() => {setDelete(entry.id)}}>
+                        <TableCell><Button variant="contained" color="error" onClick={() => {setDelete(entry.id)}}>
                             Delete
                         </Button></TableCell>
                         </TableRow>

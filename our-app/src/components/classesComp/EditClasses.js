@@ -11,7 +11,7 @@ const EditClasses = (props) =>{
     }
 
     return(<>
-    <Button variant="outlined" onClick={goToAddClass} className='addClassButton'> Add Classes </Button>
+    <Button variant="outlined" onClick={goToAddClass} className='addClassButton' style={{textDecoration: 'none'}}> Add Classes </Button>
     <ClassesTable />
     </>)
 }

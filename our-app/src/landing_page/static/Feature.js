@@ -2,7 +2,7 @@ const Feature = [
     {
       title: 'Class Pages',
       description:
-        "A dashboard that links to class pages that include a roster of enrolled students, average grades, and grade distributions for each class. This page will also allow individual teachers to assign grades to their students for that class",
+        "A dashboard that links to class pages that include a roster of enrolled students, average grades, and grade distributions for each class. This page will also allow individual teachers to assign grades to their students for that class. New upcoming updates include stylistic enhancements further, in-depth grading system, and improved intuitive interaction - all of which will be pushed out by 2023.",
       imageUrl: process.env.PUBLIC_URL + '/images/classPages.png',
       time: 1500,
     },
@@ -14,16 +14,16 @@ const Feature = [
       time: 1500,
     },
     {
-      title: 'Student Directory (coming soon)',
+      title: 'Student Directory',
       description:
-        'The directory pages give an alphabetical list of all students and teachers at the school. There is one directory for all students and another for teachers. Each entry in the list contains the person’s name, date of birth, mailing address, and homeroom teacher (for students only) . There is a search bar at the top of the page to filter by name.',
+        'The student directory page gives an alphabetical list of all students at Thomas Jefferson Elementary School. Each entry in the list contains the student’s name, date of birth, mailing address, and homeroom teacher. There is a search bar at the top of the page to filter by name. New upcoming updates include student profile pictures, bios, and – all of which will be pushed out by 2023.',
       imageUrl: process.env.PUBLIC_URL + '/images/studentDirectory.jpeg',
       time: 1500,
     },
     {
-      title: 'Teacher Directory (coming soon)',
+      title: 'Teacher Directory',
       description:
-        'The directory pages give an alphabetical list of all students and teachers at the school. There is one directory for all students and another for teachers. Each entry in the list contains the person’s name, date of birth, mailing address, and homeroom teacher (for students only) . There is a search bar at the top of the page to filter by name.',
+        'The student directory page gives an alphabetical list of all teachers at Thomas Jefferson Elementary School. Each entry in the list contains the teacher’s name, date of birth, and mailing address. There is a search bar at the top of the page to filter by name. New upcoming updates include teacher profile pictures, bios, and – all of which will be pushed out by 2023.',
       imageUrl: process.env.PUBLIC_URL + '/images/teacherDirectory.jpeg',
       time: 1500,
     },

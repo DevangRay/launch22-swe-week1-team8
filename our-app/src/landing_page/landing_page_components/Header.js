@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#dc7027',
     fontSize: '4.5rem',
   },
+  mantra: {
+    color: '#dc7027',
+    fontSize: '1.5rem',
+  },
   goDown: {
     color: '#dc7027',
     fontSize: '4rem',
@@ -72,6 +76,7 @@ export default function Header() {
             Thomas Jefferson <br />
             Elementary School<span className={classes.colorText}> Online.</span>
           </h1>
+          <h4 className={classes.mantra}>"The Brits shall never know such astute education as this" - Thomas J.</h4>
           <Scroll to="place-to-visit" smooth={true}>
             <IconButton>
               <ExpandMoreIcon className={classes.goDown} />

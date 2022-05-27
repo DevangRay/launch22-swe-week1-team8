@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { ButtonGroup, Button } from '@mui/material';
+// import {useEffect} from "react";
 import Classes from './components/classesComp/Classes';
 import Error from './components/routerComp/Error';
 import Calendar from './components/calenderComp/Calendar';
@@ -11,6 +12,7 @@ import ChangeGrade from './components/classesComp/ChangeGrade';
 import MainPage from './landing_page/MainPage';
 import AddStudent from './components/directoryComp/AddStudent';
 import AddTeacher from './components/directoryComp/AddTeacher';
+import CreateEvent from './components/calenderComp/CreateEvent';
 
 function App() {
   const style = {
@@ -37,13 +39,16 @@ function App() {
           <Route path="/student/:studentTeacher/:studentName/:grade" element={<ChangeGrade/>} />
           <Route path="/add-class" element={<AddClass/>}/>
           <Route path="/calendar" element = {<Calendar/>} />
+          <Route path="/add-event" element = {<CreateEvent/>} />
           <Route path="/directory" element = {<Directory/>} />
           <Route path="/add-student" element={<AddStudent/>} />
           <Route path="/add-teacher" element={<AddTeacher/>} />
           <Route path='/*' element={<Error/>}/>
         </Routes>
       </div>
+
       <div className='breaker'></div>
+      
       <div style={style} className="navBar">
         <nav>
           <ButtonGroup variant='text' aria-label="text button group">
